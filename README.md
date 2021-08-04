@@ -1,4 +1,4 @@
-# trashOS 1.1 - Xeon adventures
+﻿# trashOS 1.1 - Xeon adventures
 
 ## Note: This repo is an unofficial fork of MykolaG's trashOS repo with some of my own marks. The most up-to-date information (but not all of it) is in the [OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/)
 
@@ -22,7 +22,7 @@ The hardware that I was using:
 
 **Storage:**
 - Crucial BX500 240 GB SSD
-	- There are actually some problems with this SSD model when using APFS like I/O errors, 10.12.6 with HFS+ boots and works just fine
+	- ~~There are actually some problems with this SSD model when using APFS like I/O errors, 10.12.6 with HFS+ boots and works just fine~~ Nevermind, it was my fault
 - Seagate Desktop HDD 500 GB 7200 RPM
 ## Install process
 
