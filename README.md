@@ -10,7 +10,7 @@ The hardware that I was using:
 - 4x 2 GB Kingston DDR2 800 MHz memory
 - Sapphire Radeon RX 470 4 GB OC
 - Crucial BX500 240 GB SPM
-- Seagate Desktop HDD 500 GB 7200 ROM
+- Seagate Desktop HDD 500 GB 7200 RPM
 ## Install process
 
 1. Get macOS: [GibmacOS](https://github.com/corpnewt/gibMacOS)
