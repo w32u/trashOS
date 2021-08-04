@@ -9,7 +9,7 @@ The hardware that I was using:
 - Intel Xeon E5450 (4 cores, 3.0 GHz)
 - 4x 2 GB Kingston DDR2 800 MHz memory
 - Sapphire Radeon RX 470 4 GB OC
-- Crucial BX500 240 GB SPM
+- Crucial BX500 240 GB SSD
 - Seagate Desktop HDD 500 GB 7200 RPM
 ## Install process
 
