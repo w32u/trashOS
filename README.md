@@ -1,15 +1,16 @@
-# trashOS
+# trashOS 1.1 - Xeon adventures
 
-## Note: I do not actievly maintain this repo, for most up-to-date information please follow the [OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/)
+## Note: This repo is an unofficial fork of MykolaG's trashOS repo with some of my own marks. The most up-to-date information (but not all of it) is in the [OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/)
 
-This repo is mainly used as a getting started with page with Core2 series hardware running on OpenCore. There's also some sample EFIs for a few hardware configurations I've ran with:
-
-* [HP DC7900 SFF](/HP-Compaq-DC7900)
-  * Tested OSes:
-    * 10.5 through 10.15
-    * 10.4 and 11 are yet to be tested
-* [Dell Studio 540](/Dell-Studio-540)
-
+### This repo in under maintenance. Some information might not be up-to-date or working with your hardware or OpenCore version. It's more an individual notes, so consider reading official  Installation guide.
+This repo is mainly used as a getting started with page with Core 2 Duo/Quad or Harpertown Xeon series hardware running on OpenCore.
+The hardware that I was using:
+- Asus P5K (1201 AHCI BIOS with Xeon microcodes)
+- Intel Xeon E5450 (4 cores, 3.0 GHz)
+- 4x 2 GB Kingston DDR2 800 MHz memory
+- Sapphire Radeon RX 470 4 GB OC
+- Crucial BX500 240 GB SPM
+- Seagate Desktop HDD 500 GB 7200 ROM
 ## Install process
 
 1. Get macOS: [GibmacOS](https://github.com/corpnewt/gibMacOS)
@@ -134,3 +135,12 @@ Ethernet gets a bit more complicated as we're going into the depths of legacy ha
 * [RealtekRTL8100](https://github.com/Mieze/RealtekRTL8100)
 * [RealtekRTL8111](https://github.com/Mieze/RTL8111_driver_for_OS_X/releases)
 * [AtherosE2200Ethernet](https://github.com/Mieze/AtherosE2200Ethernet/releases)
+* [iats](https://code.google.com/archive/p/iats/downloads), which includes:
+    + AtherosL1Ethernet/AttansicL1Ethernet for 10.5 and 10.6 (the latter works even with Catalina)
+    + Atheros L1c kexts
+    + Atheros L1e kexts
+
+## Credits
+- [Apple](https://www.apple.com/ru/) for macOS
+- [Acidanthera](https://dortania.github.io/) for creating OpenCore and the original guide
+- [xeon-e5450.ru](https://xeon-e5450.ru/socket-775/bios-asus/) for hosting Asus P5K bioses and for information about 771 Xeons compatibility with 775 mobos
