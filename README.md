@@ -144,3 +144,4 @@ Ethernet gets a bit more complicated as we're going into the depths of legacy ha
 - [Apple](https://www.apple.com/ru/) for macOS
 - [Acidanthera](https://dortania.github.io/) for creating OpenCore and the original guide
 - [xeon-e5450.ru](https://xeon-e5450.ru/socket-775/bios-asus/) for hosting Asus P5K bioses and for information about 771 Xeons compatibility with 775 mobos
+- [khronokernel](https://github.com/khronokernel) for the original repo
