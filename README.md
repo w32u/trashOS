@@ -159,6 +159,3 @@ Several SMBIOSES are included here:
 - [xeon-e5450.ru](https://xeon-e5450.ru/socket-775/bios-asus/) for hosting Asus P5K bioses and for information about 771 Xeons compatibility with 775 mobos
 - [khronokernel](https://github.com/khronokernel) for the original repo
 - [Mactracker](https://mactracker.ca/) for more accurate macOS release versions on required SMBIOSes
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbNDA1NDk0MzcwXX0=
--->
