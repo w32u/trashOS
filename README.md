@@ -22,6 +22,7 @@ The hardware that I was using:
 
 **Storage:**
 - Crucial BX500 240 GB SSD
+	- There are actually some problems with this SSD model when using APFS like I/O errors, 10.12.6 with HFS+ boots and works just fine
 - Seagate Desktop HDD 500 GB 7200 RPM
 ## Install process
 
@@ -158,3 +159,6 @@ Several SMBIOSES are included here:
 - [xeon-e5450.ru](https://xeon-e5450.ru/socket-775/bios-asus/) for hosting Asus P5K bioses and for information about 771 Xeons compatibility with 775 mobos
 - [khronokernel](https://github.com/khronokernel) for the original repo
 - [Mactracker](https://mactracker.ca/) for more accurate macOS release versions on required SMBIOSes
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbNDA1NDk0MzcwXX0=
+-->
