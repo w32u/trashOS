@@ -2,7 +2,7 @@
 
 ## Note: This repo is an unofficial fork of MykolaG's trashOS repo with some of my own marks. The most up-to-date information (but not all of it) is in the [OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/)
 
-### This repo in under maintenance. Some information might not be up-to-date or working with your hardware or OpenCore version. It's more an individual notes, so consider reading official  Installation guide.
+### This repo in under maintenance. Some information might not be up-to-date or working with your hardware or OpenCore version. It's more like individual notes, so consider reading official  Installation guide.
 This repo is mainly used as a getting started with page with Core 2 Duo/Quad or Harpertown Xeon series hardware running on OpenCore.
 The hardware that I was using:
 
