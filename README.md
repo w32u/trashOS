@@ -5,10 +5,22 @@
 ### This repo in under maintenance. Some information might not be up-to-date or working with your hardware or OpenCore version. It's more an individual notes, so consider reading official  Installation guide.
 This repo is mainly used as a getting started with page with Core 2 Duo/Quad or Harpertown Xeon series hardware running on OpenCore.
 The hardware that I was using:
+
+**Motherboard:**
 - Asus P5K (1201 AHCI BIOS with Xeon microcodes)
+
+**Processor:**
 - Intel Xeon E5450 (4 cores, 3.0 GHz)
+
+**RAM:**
 - 4x 2 GB Kingston DDR2 800 MHz memory
+
+**GPUs:**
 - Sapphire Radeon RX 470 4 GB OC
+- Zotac GeForce GTX 260 896 MB (failed to inject)
+- XFX GeForce 8800 GS XXX 384 MB (in process)
+
+**Storage:**
 - Crucial BX500 240 GB SSD
 - Seagate Desktop HDD 500 GB 7200 RPM
 ## Install process
@@ -71,6 +83,10 @@ Ethernet gets a bit more complicated as we're going into the depths of legacy ha
 * [RealtekRTL8100](https://github.com/Mieze/RealtekRTL8100)
 * [RealtekRTL8111](https://github.com/Mieze/RTL8111_driver_for_OS_X/releases)
 * [AtherosE2200Ethernet](https://github.com/Mieze/AtherosE2200Ethernet/releases)
+* [iats](https://code.google.com/archive/p/iats/downloads), which includes:
+    * AtherosL1Ethernet/AttansicL1Ethernet for 10.5 and 10.6 (the latter works even with Catalina)
+    * Atheros L1c kexts
+    * Atheros L1e kexts
 
 #### Quirks
 
@@ -79,6 +95,8 @@ Ethernet gets a bit more complicated as we're going into the depths of legacy ha
 
 ### Misc
 
+* SecureBootModel: `j137`
+    * Required for booting 10.13.2 - 10.15.7
 * Vault: `Optional`
    * Required for booting unless you've signed OpenCore yourself
 * ScanPolicy: `0`
@@ -94,14 +112,27 @@ Ethernet gets a bit more complicated as we're going into the depths of legacy ha
 
 ### PlatformInfo
 
-Few SMBIOS to choose from:
+Recommended 2007 master race SMBIOS:
 
+**Core 2 Duo series:**
+* `iMac7,1`
+    * Recommended for 10.4.10 - 10.5.8
 * `iMac10,1`
-  * Recommended for High Sierra(10.13) and older
-* `MacPro5,1`
-  * Alternative to iMac10,1, also has support in Catalina
+    * Recommended for 10.6.1 - 10.13.6
 * `MacPro6,1`
-  * Recommended for Big Sur(11)
+    * Recommended for 10.14 and higher in tandem with [telemetrap.kext](https://forums.macrumors.com/posts/28447707) 
+
+**Core 2 Quad / Harpertown Xeon series:**
+* `MacPro2,1`
+    * Should be used for 10.4.9 - 10.4.11 (haven't tested yet)
+* `MacPro3,1`
+    * Should be used for 10.5.1 - 10.11.6 (haven't tested yet)
+* `MacPro5,1`
+    * Recommended for 10.12 - 10.14.6
+        * 10.14 - 10.14.6 should be used with [telemetrap.kext](https://forums.macrumors.com/posts/28447707) 
+    * This SMBIOS needs `-nehalem_error_disable` bootarg
+* `MacPro6,1`
+    * Recommended for 10.15 and higher in tandem with [telemetrap.kext](https://forums.macrumors.com/posts/28447707) 
 
 ### UEFI
 
@@ -118,30 +149,9 @@ Few SMBIOS to choose from:
 * [PartitionDxeLegacy](https://github.com/acidanthera/OcBinaryData/blob/master/Drivers/PartitionDxeLegacy.efi)
   * Required for booting recovery partitions with 10.7 through 10.9. 10.10 and newer do not require this
 
-**Kexts**:
-
-The main ones are as follows:
-
-* [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases) **or** FakeSMC
-* [Lilu](https://github.com/acidanthera/Lilu/releases)
-* [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)
-* [AppleALC](https://github.com/acidanthera/AppleALC/releases) **or** [VoodooHDA](https://sourceforge.net/projects/voodoohda/)
-* [telemetrap.kext](https://forums.macrumors.com/threads/mp3-1-others-sse-4-2-emulation-to-enable-amd-metal-driver.2206682/post-28447707)
-
-Ethernet gets a bit more complicated as we're going into the depths of legacy hackintosh kexts, so support on Catalina can be a bit sketchy:
-
-* [AppleIntelE1000e](https://github.com/chris1111/AppleIntelE1000e/releases)
-* [IntelMausi](https://github.com/acidanthera/IntelMausi/releases)
-* [RealtekRTL8100](https://github.com/Mieze/RealtekRTL8100)
-* [RealtekRTL8111](https://github.com/Mieze/RTL8111_driver_for_OS_X/releases)
-* [AtherosE2200Ethernet](https://github.com/Mieze/AtherosE2200Ethernet/releases)
-* [iats](https://code.google.com/archive/p/iats/downloads), which includes:
-    + AtherosL1Ethernet/AttansicL1Ethernet for 10.5 and 10.6 (the latter works even with Catalina)
-    + Atheros L1c kexts
-    + Atheros L1e kexts
-
 ## Credits
 - [Apple](https://www.apple.com/ru/) for macOS
 - [Acidanthera](https://dortania.github.io/) for creating OpenCore and the original guide
+- [Asus](https://www.asus.com/ru/) for creating the original P5K BIOS
 - [xeon-e5450.ru](https://xeon-e5450.ru/socket-775/bios-asus/) for hosting Asus P5K bioses and for information about 771 Xeons compatibility with 775 mobos
 - [khronokernel](https://github.com/khronokernel) for the original repo
