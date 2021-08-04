@@ -25,13 +25,8 @@ The hardware that I was using:
 - Seagate Desktop HDD 500 GB 7200 RPM
 ## Install process
 
-1. Get macOS: [GibmacOS](https://github.com/corpnewt/gibMacOS)
-2. Build installer: [`createinstallmedia`](https://support.apple.com/en-us/HT201372)
-3. Enable legacy booting: [Legacy Install](https://dortania.github.io/OpenCore-Desktop-Guide/extras/legacy)
-4. Build rest of installer
-5. Boot and install as usual
-6. Mojave and newer users: You'll also want to grab the [telemetrap.kext](https://forums.macrumors.com/threads/mp3-1-others-sse-4-2-emulation-to-enable-amd-metal-driver.2206682/post-28447707) to fix the SSE4,2 requirement
-
+There's nothing unusual, proceed with the [Creating the USB](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/#creating-the-usb) guide, set up the Legacy bootsector, EFI folder, kexts, etc. and install macOS as usual.
+A special note is that for 10.14+ you may require [telemetrap.kext](https://forums.macrumors.com/threads/mp3-1-others-sse-4-2-emulation-to-enable-amd-metal-driver.2206682/post-28447707) for loading the system
 
 ## OpenCore Specifics
 
@@ -63,6 +58,8 @@ Disable all quirks related to Booter *except*:
 
 * RebuildAppleMemoryMap: `True`
   * Required to boot 10.6 and older due early kernel panics
+* ForceExitBootServices: `True`
+    * Helps to avoid `X64 EXCEPTION TYPE` error on OS X 10.6 and older
 
 ### Kernel
 
@@ -70,11 +67,13 @@ Disable all quirks related to Booter *except*:
 
 The main ones are as follows:
 
-* [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases) **or** FakeSMC
+* [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases) **or** [FakeSMC](https://bitbucket.org/RehabMan/os-x-fakesmc-kozlek/downloads/)
 * [Lilu](https://github.com/acidanthera/Lilu/releases)
 * [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)
 * [AppleALC](https://github.com/acidanthera/AppleALC/releases) **or** [VoodooHDA](https://sourceforge.net/projects/voodoohda/)
-* [telemetrap.kext](https://forums.macrumors.com/threads/mp3-1-others-sse-4-2-emulation-to-enable-amd-metal-driver.2206682/post-28447707)
+    * Not needed if you use USB plug-and-play card or headphones 
+* [telemetrap.kext](https://forums.macrumors.com/threads/mp3-1-others-sse-4-2-emulation-to-enable-amd-metal-driver.2206682/post-28447707) for 10.14+
+* [MouSSE](https://forums.macrumors.com/threads/mp3-1-others-sse-4-2-emulation-to-enable-amd-metal-driver.2206682/) for emulating SSE4.2 instruction set, needed by AMD metal drivers (7xxx+) since 10.13
 
 Ethernet gets a bit more complicated as we're going into the depths of legacy hackintosh kexts, so support on Catalina can be a bit sketchy:
 
@@ -109,30 +108,32 @@ Ethernet gets a bit more complicated as we're going into the depths of legacy ha
     * used with MacPro5,1 SMBIOS to avoid kernel panics
   * `-no_compat_check`
     * Allows older SMBIOS to be used in newer versions of macOS
+  * `nv_disable=1`
+    * A temporary bootarg for turning off old NVIDIA acceleration. If you try to boot without that arg and without NVIDIA card patched, you'll get a black screen. 
 
 ### PlatformInfo
 
-Recommended 2007 master race SMBIOS:
+Several SMBIOSES are included here:
 
-**Core 2 Duo series:**
-* `iMac7,1`
-    * Recommended for 10.4.10 - 10.5.8
-* `iMac10,1`
-    * Recommended for 10.6.1 - 10.13.6
-* `MacPro6,1`
-    * Recommended for 10.14 and higher in tandem with [telemetrap.kext](https://forums.macrumors.com/posts/28447707) 
+* **Core 2 Duo series:**
+    * `iMac7,1`
+        * Recommended for 10.4.10 - 10.5.8
+    * `iMac10,1`
+        * Recommended for 10.6.1 - 10.13.6
+    * `MacPro6,1`
+        * Recommended for 10.14 and higher in tandem with [telemetrap.kext](https://forums.macrumors.com/posts/28447707) 
 
-**Core 2 Quad / Harpertown Xeon series:**
-* `MacPro2,1`
-    * Should be used for 10.4.9 - 10.4.11 (haven't tested yet)
-* `MacPro3,1`
-    * Should be used for 10.5.1 - 10.11.6 (haven't tested yet)
-* `MacPro5,1`
-    * Recommended for 10.12 - 10.14.6
-        * 10.14 - 10.14.6 should be used with [telemetrap.kext](https://forums.macrumors.com/posts/28447707) 
-    * This SMBIOS needs `-nehalem_error_disable` bootarg
-* `MacPro6,1`
-    * Recommended for 10.15 and higher in tandem with [telemetrap.kext](https://forums.macrumors.com/posts/28447707) 
+* **Core 2 Quad / Harpertown Xeon series:**
+    * `MacPro2,1`
+        * Should be used for 10.4.9 - 10.4.11 (haven't tested yet)
+    * `MacPro3,1`
+        * Should be used for 10.5.1 - 10.11.6 (haven't tested yet)
+    * `MacPro5,1`
+        * Recommended for 10.12 - 10.14.6
+            * 10.14 - 10.14.6 should be used with [telemetrap.kext](https://forums.macrumors.com/posts/28447707) 
+        * This SMBIOS needs `-nehalem_error_disable` bootarg
+    * `MacPro6,1`
+        * Recommended for 10.15 and higher in tandem with [telemetrap.kext](https://forums.macrumors.com/posts/28447707) 
 
 ### UEFI
 
@@ -151,7 +152,8 @@ Recommended 2007 master race SMBIOS:
 
 ## Credits
 - [Apple](https://www.apple.com/ru/) for macOS
-- [Acidanthera](https://dortania.github.io/) for creating OpenCore and the original guide
+- [Acidanthera](https://dortania.github.io/) for creating OpenCore and the original guide and for the SMBIOS table
 - [Asus](https://www.asus.com/ru/) for creating the original P5K BIOS
 - [xeon-e5450.ru](https://xeon-e5450.ru/socket-775/bios-asus/) for hosting Asus P5K bioses and for information about 771 Xeons compatibility with 775 mobos
 - [khronokernel](https://github.com/khronokernel) for the original repo
+- [Mactracker](https://mactracker.ca/) for more accurate macOS release versions on required SMBIOSes
