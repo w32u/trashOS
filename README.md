@@ -89,7 +89,7 @@ Ethernet gets a bit more complicated as we're going into the depths of legacy ha
 * [RealtekRTL8111](https://github.com/Mieze/RTL8111_driver_for_OS_X/releases)
 * [AtherosE2200Ethernet](https://github.com/Mieze/AtherosE2200Ethernet/releases)
 * [iats](https://code.google.com/archive/p/iats/downloads), which includes:
-    * AtherosL1Ethernet/AttansicL1Ethernet for 10.5 and 10.6 (the latter works even with Catalina)
+    * AtherosL1Ethernet/AttansicL1Ethernet for 10.6 and 10.5 respectively (the first one works even with Catalina)
     * Atheros L1c kexts
     * Atheros L1e kexts
 
