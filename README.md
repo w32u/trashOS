@@ -43,15 +43,14 @@ A special note is that for 10.14+ you may require [telemetrap.kext](https://foru
 
 #### Add
 
-* [SSDT-EC](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/SSDT-EC.dsl)
+* [SSDT-EC](https://dortania.github.io/Getting-Started-With-ACPI/Universal/ec-methods/ssdttime.html#fixing-embedded-controllers-ssdttime)
   * Allows AppleBusPowerController to load
-* [SSDT-HPET](https://github.com/corpnewt/SSDTTime)
-  * Used for resolving IRQ conflicts, see here on how to generate the file: [SSDTTime](https://dortania.github.io/Getting-Started-With-ACPI/)
+* [SSDT-HPET](https://dortania.github.io/Getting-Started-With-ACPI/Universal/irq.html)
+  * Used for resolving IRQ conflicts
 
 #### Patch
 
-* [HPET _CSR to XCSR Patch](https://github.com/corpnewt/SSDTTime)
-  * To be used with SSDT-HPET. See here on how to generate the file: [SSDTTime](https://dortania.github.io/Getting-Started-With-ACPI/)
+* Just use all the given patches after generating SSDTs in SSDTTime from `Patches_OC.plist`
 
 #### Quirks
 
