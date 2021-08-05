@@ -126,9 +126,10 @@ Several SMBIOSES are included here:
 
 * **Core 2 Duo series:**
     * `iMac7,1`
-        * Recommended for 10.4.10 - 10.5.8
+        * Recommended for 10.4.10 - 10.11.6 if using Merom architecture (i. e. CPUs without SSE4.1)
+        * Recommended for 10.4.10 - 10.5.8 if using Penryn architecture (i. e. CPUs with SSE4.2)
     * `iMac10,1`
-        * Recommended for 10.6.1 - 10.13.6
+        * Recommended for 10.6.1 - 10.13.6 if using Penryn architecture (i. e. CPUs with SSE4.2)
     * `MacPro6,1`
         * Recommended for 10.14 and higher in tandem with [telemetrap.kext](https://forums.macrumors.com/posts/28447707) 
 
