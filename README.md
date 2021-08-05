@@ -1,4 +1,4 @@
-﻿# trashOS 1.1 - Xeon adventures
+# trashOS 1.1 - Xeon adventures
 
 ## Note: This repo is an unofficial fork of MykolaG's trashOS repo with some of my own marks. The most up-to-date information (but not all of it) is in the [OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/)
 
@@ -7,22 +7,27 @@ This repo is mainly used as a getting started with page with Core 2 Duo/Quad or 
 The hardware that I was using:
 
 **Motherboard:**
+
 - Asus P5K (1201 AHCI BIOS with Xeon microcodes)
 
 **Processor:**
+
 - Intel Xeon E5450 (4 cores, 3.0 GHz)
 
 **RAM:**
+
 - 4x 2 GB Kingston DDR2 800 MHz memory
 
 **GPUs:**
+
 - Sapphire Radeon RX 470 4 GB OC
 - Zotac GeForce GTX 260 896 MB (failed to inject)
 - XFX GeForce 8800 GS XXX 384 MB (in process)
 
 **Storage:**
+
 - Crucial BX500 240 GB SSD
-	- ~~There are actually some problems with this SSD model when using APFS like I/O errors, 10.12.6 with HFS+ boots and works just fine~~ Nevermind, it was my fault
+	- ~~There are actually some problems with this SSD model when using APFS like I/O errors, 10.12.6 with HFS+ boots and works just fine~~ Nevermind, it was my fault.
 - Seagate Desktop HDD 500 GB 7200 RPM
 ## Install process
 
@@ -98,6 +103,7 @@ Ethernet gets a bit more complicated as we're going into the depths of legacy ha
 
 * SecureBootModel: `j137`
     * Required for booting 10.13.2 - 10.15.7
+    * Actually you can use any value listed in SecureBootModel section of Post-Install guide, but pay attention to the `Minimum macOS Version` section
 * Vault: `Optional`
    * Required for booting unless you've signed OpenCore yourself
 * ScanPolicy: `0`
@@ -107,11 +113,13 @@ Ethernet gets a bit more complicated as we're going into the depths of legacy ha
 
 * boot-arg:
   * `-nehalem_error_disable`
-    * used with MacPro5,1 SMBIOS to avoid kernel panics
+     * used with MacPro5,1 SMBIOS to avoid kernel panics
   * `-no_compat_check`
-    * Allows older SMBIOS to be used in newer versions of macOS
+     * Allows older SMBIOS to be used in newer versions of macOS
   * `nv_disable=1`
-    * A temporary bootarg for turning off old NVIDIA acceleration. If you try to boot without that arg and without NVIDIA card patched, you'll get a black screen. 
+     * A temporary bootarg for turning off old NVIDIA acceleration. If you try to boot without that arg and without NVIDIA card patched, you'll get a black screen.
+  * `npci=0x2000`
+     * Use this bootarg if you have trouble booting a GPU that has over 4 GBs of VRAM and you don't have `Above 4G Decoding` feature in your BIOS settings
 
 ### PlatformInfo
 
@@ -144,13 +152,9 @@ Several SMBIOSES are included here:
 * [OpenRuntimeServices](https://github.com/acidanthera/OpenCorePkg/releases)
    * Helps with Native NVRAM and other misc. things
 * [OpenUsbKbDxe](https://github.com/acidanthera/OpenCorePkg/releases)
-   * Needed for the picker
+   * Needed for the keyboard support in the picker
 * [HfsPlusLegacy](https://github.com/acidanthera/OcBinaryData)
    * Needed for seeing HFS volumes
-* [ExFatDxeLegacy](https://github.com/acidanthera/OcBinaryData)
-   * Needed for seeing drives made by Bootcamp assistant
-* [PartitionDxeLegacy](https://github.com/acidanthera/OcBinaryData/blob/master/Drivers/PartitionDxeLegacy.efi)
-  * Required for booting recovery partitions with 10.7 through 10.9. 10.10 and newer do not require this
 
 ## Credits
 - [Apple](https://www.apple.com/ru/) for macOS
