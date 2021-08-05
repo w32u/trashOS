@@ -102,7 +102,7 @@ Ethernet gets a bit more complicated as we're going into the depths of legacy ha
 
 * SecureBootModel: `j137`
     * Required for booting 10.13.2 - 10.15.7
-    * Actually you can use any value listed in SecureBootModel section of Post-Install guide, but pay attention to the `Minimum macOS Version` section
+    * Actually you can use any value listed in [SecureBootModel](https://dortania.github.io/OpenCore-Post-Install/universal/security/applesecureboot.html#securebootmodel) section of the Post-Install guide, but pay attention to the `Minimum macOS Version` section
 * Vault: `Optional`
    * Required for booting unless you've signed OpenCore yourself
 * ScanPolicy: `0`
