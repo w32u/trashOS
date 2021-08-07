@@ -80,7 +80,6 @@ The main ones are as follows:
 * [telemetrap.kext](https://forums.macrumors.com/threads/mp3-1-others-sse-4-2-emulation-to-enable-amd-metal-driver.2206682/post-28447707) for 10.14+
 * [MouSSE](https://forums.macrumors.com/threads/mp3-1-others-sse-4-2-emulation-to-enable-amd-metal-driver.2206682/) for emulating SSE4.2 instruction set, needed by AMD metal drivers (7xxx+) since 10.13
     * If you don't use AMD GPUs, adding this kext will be pretty much useless
-* [AHCIPortInjector](https://github.com/khronokernel/Legacy-Kexts/blob/master/Injectors/Zip/AHCIPortInjector.kext.zip) if you have some kind of trouble with old AHCI controllers
 
 Ethernet gets a bit more complicated as we're going into the depths of legacy hackintosh kexts, so support on Catalina can be a bit sketchy:
 
@@ -98,6 +97,8 @@ Ethernet gets a bit more complicated as we're going into the depths of legacy ha
 
 * PanicNoKextDump: `True`
   * Makes debugging kernel panics in 10.13+ a bit easier
+* ExternalDiskIcons: `True`
+  * Helps in case if either your drives show as external on older OSes or there are some troubles with reading the drive
 
 ### Misc
 
