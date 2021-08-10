@@ -9,6 +9,7 @@ The hardware that I was using:
 **Motherboard:**
 
 - Asus P5K (1201 AHCI BIOS with Xeon microcodes)
+  - Note: I've noticed that AHCI mode on modified BIOS works pretty bad with macOS, so consider using original BIOS (where AHCI mode is not present) + [ATAPortInjector.kext](https://github.com/khronokernel/Legacy-Kexts/blob/master/Injectors/Zip/ATAPortInjector.kext.zip)
 
 **Processor:**
 
@@ -80,6 +81,7 @@ The main ones are as follows:
 * [telemetrap.kext](https://forums.macrumors.com/threads/mp3-1-others-sse-4-2-emulation-to-enable-amd-metal-driver.2206682/post-28447707) for 10.14+
 * [MouSSE](https://forums.macrumors.com/threads/mp3-1-others-sse-4-2-emulation-to-enable-amd-metal-driver.2206682/) for emulating SSE4.2 instruction set, needed by AMD metal drivers (7xxx+) since 10.13
     * If you don't use AMD GPUs, adding this kext will be pretty much useless
+* [ATAPortInjector.kext](https://github.com/khronokernel/Legacy-Kexts/blob/master/Injectors/Zip/ATAPortInjector.kext.zip) if you don't have AHCI support
 
 Ethernet gets a bit more complicated as we're going into the depths of legacy hackintosh kexts, so support on Catalina can be a bit sketchy:
 
