@@ -117,4 +117,5 @@ Several SMBIOSes that support 10.4 are included here:
 - [Asus](https://www.asus.com/ru/) for creating the original P5K BIOS
 - [xeon-e5450.ru](https://xeon-e5450.ru/socket-775/bios-asus/) for hosting Asus P5K bioses and for information about 771 Xeons compatibility with 775 mobos
 - [khronokernel](https://github.com/khronokernel) for the original repo and [legacy kexts repo](https://github.com/khronokernel/Legacy-Kexts)
+- [iats](https://code.google.com/archive/p/iats/) for Attansic/Atheros macOS kexts
 - [Mactracker](https://mactracker.ca/) and [EveryMac.com](https://everymac.com/) for more accurate macOS release versions on required SMBIOSes
