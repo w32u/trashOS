@@ -4,7 +4,7 @@
 
 ### This repo in under maintenance. Some information might not be up-to-date or working with your hardware or OpenCore version. It's more like individual notes, so consider reading official  Installation guide
 
-### Also a good thing to note that at the moment of writing this section there has been no succesfull attempts to run 10.4 Tiger on my hardware
+### [Proof-of-concept](https://www.reddit.com/r/hackintosh/comments/w72ask/mac_os_x_10411_tiger_on_intel_xeon_e5450_geforce/)
 
 This repo is mainly used as a getting started with page with Core 2 Duo/Quad or Harpertown Xeon series hardware running 10.4.11 Tiger on OpenCore.
 
@@ -71,7 +71,8 @@ Disable all quirks related to Booter *except*:
 
 The main ones are as follows:
 
-- [FakeSMC](https://github.com/khronokernel/Legacy-Kexts/blob/master/32Bit-only/Zip/FakeSMC-32.kext.zip)
+- [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases) and [Lilu](https://github.com/acidanthera/Lilu/releases)
+  - If you have some problems with them, use [32-bit FakeSMC](https://github.com/khronokernel/Legacy-Kexts/blob/master/32Bit-only/Zip/FakeSMC-32.kext.zip)
 - [VoodooHDA](https://github.com/khronokernel/Legacy-Kexts/blob/master/FAT/Zip/VoodooHDA.kext.zip)
   - Not needed if you use USB plug-and-play card or headphones
 - [ATAPortInjector.kext](https://github.com/khronokernel/Legacy-Kexts/blob/master/Injectors/Zip/ATAPortInjector.kext.zip) (if you don't have AHCI support)
@@ -98,6 +99,7 @@ Ethernet gets a bit more complicated as we're going into the depths of legacy ha
 #### NVRAM
 
 - boot-arg:
+  - Standart `-v debug=0x100 keepsyms=1`
   - `nv_disable=1`
     - A temporary bootarg for turning off old NVIDIA acceleration. If you try to boot without that arg and without NVIDIA card patched, you'll get a black screen.
   - `npci=0x2000`
@@ -127,6 +129,8 @@ Several SMBIOSes that support 10.4 are included here:
   - Needed for the keyboard support in the picker
 - [HfsPlusLegacy](https://github.com/acidanthera/OcBinaryData)
   - Needed for seeing HFS volumes
+- [ResetNvramEntry](https://github.com/acidanthera/OpenCorePkg/releases)
+  - Replacement of AllowNvramReset that was previously located in Misc -> Security
 
 ## Credits
 
