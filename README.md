@@ -4,31 +4,9 @@
 
 ### This repo in under maintenance. Some information might not be up-to-date or working with your hardware or OpenCore version. It's more like individual notes, so consider reading official  Installation guide
 
-### [Proof-of-concept](https://www.reddit.com/r/hackintosh/comments/w72ask/mac_os_x_10411_tiger_on_intel_xeon_e5450_geforce/)
+This repo is mainly used as a getting started with page with Core 2 Duo/Quad or Harpertown Xeon series hardware running 10.4.11 Tiger on OpenCore. Here's the [proof-of-concept](https://www.reddit.com/r/hackintosh/comments/w72ask/mac_os_x_10411_tiger_on_intel_xeon_e5450_geforce/) that you can actually run Tiger using the latest possible OpenCore (at the moment of writing this text use the latest master branch build)
 
-This repo is mainly used as a getting started with page with Core 2 Duo/Quad or Harpertown Xeon series hardware running 10.4.11 Tiger on OpenCore.
-
-The hardware that I was using:
-
-**Motherboard:**
-
-- Asus P5K (1201 AHCI BIOS with Xeon microcodes)
-
-**Processor:**
-
-- Intel Xeon E5450 (4 cores, 3.0 GHz)
-
-**RAM:**
-
-- 4x 2 GB Kingston DDR2 800 MHz memory
-
-**GPU:**
-
-- MSI GeForce 6600 GT (128 MB GDDR3)
-
-**Storage:**
-
-- Kingston A400 120 GB SATA SSD
+The hardware that I was using: [ASUS P5K](https://github.com/w32u/trashOS/tree/tiger/P5K)
 
 ## Installation process
 
